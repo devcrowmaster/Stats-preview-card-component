@@ -1,0 +1,140 @@
+$background-body: hsl(233, 47%, 7%);
+$accent: hsl(277, 64%, 61%);
+$card-background: hsl(244, 38%, 16%);
+$attribution: hsl(228, 45%, 44%);
+$text-gray: darken(white, 25);
+$inter: 'Inter', sans-serif;
+$lexend-deca: 'Lexend Deca', sans-serif;
+
+$desktop: 1024px;
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $background-body;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: 90%;
+  margin: 3rem auto;
+  @media (min-width: $desktop) {
+    margin: 6rem auto;
+  }
+}
+
+.card {
+  color: white;
+  text-align: center;
+  border-radius: 0.5rem;
+  background-color: $card-background;
+  overflow: hidden;
+  max-width: 340px;
+  margin: 0 auto;
+  display: grid;
+  @media (min-width: $desktop) {
+    max-width: 980px;
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+  }
+  &__header {
+    background: $accent;
+    img {
+      mix-blend-mode: multiply;
+      filter: brightness(1.2);
+      object-fit: fill;
+      object-fit: center;
+      height: 100%;
+    }
+    @media (min-width: $desktop) {
+      grid-column: 2/2;
+    }
+  }
+  &__body {
+    margin: 2.5rem 2rem;
+    font-family: $inter;
+    @media (min-width: $desktop) {
+      margin: 2.5rem 4.5rem;
+      grid-column: 1/2;
+      grid-row: 1;
+    }
+  }
+  &__title {
+    font-size: 1.7rem;
+    span {
+      color: $accent;
+    }
+    @media (min-width: $desktop) {
+      font-size: 1.8rem;
+    }
+  }
+  &__text {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: $text-gray;
+    @media (min-width: $desktop) {
+      font-size: 0.75rem;
+      width: 90%;
+    }
+  }
+  &__feature {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    li {
+      text-transform: uppercase;
+      line-height: 1.5;
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      color: $text-gray;
+      span {
+        display: block;
+        font-size: 1.5rem;
+        opacity: 1;
+        font-weight: 700;
+        text-transform: initial;
+        color: white;
+      }
+    }
+    @media (min-width: $desktop) {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0rem;
+      li {
+        font-size: 0.6rem;
+        span {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  color: #fff;
+  font-family: $inter;
+  margin: 2rem 0;
+  a {
+    color: $attribution;
+  }
+}
